@@ -8,8 +8,21 @@
 </head>
 
 <body>
-    <p>Test</p>
+    <input id="input" type="number">
+    <p id="test"></p>
+    <button onclick="reset()">Reset</button>
 
+    <script>
+        document.getElementById("input").addEventListener("keyup", updateText);
+        function updateText() {
+            var inputValue = document.getElementById('input').value;
+            document.getElementById('test').innerText = inputValue;
+        }
+        function reset() {
+            document.getElementById('test').innerText = 100
+            document.getElementById('input').value = 100
+        }
+    </script>
 </body>
 
 </html>
