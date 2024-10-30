@@ -4,26 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
     <title>Salary calculator</title>
 </head>
 
 <body>
     <h1>70/30 modellen</h1>
     <div>
-        <label for="timmar">timmar</label>
+        <label for="timmar">Timmar</label>
         <input id="timmar" type="number" value="160">
     </div>
     <div>
-        <label for="timarvode">timarvode</label>
+        <label for="timarvode">Timarvode</label>
         <input id="timarvode" type="number" value="1000">
     </div>
     <div>
-        <label for="bruttolön">bruttolön</label>
-        <input id="bruttolön" type="number" value="55000">
+        <h2>Månadsintäkt</h2>
+        <div id="monthlyIncome"></div>
     </div>
     <div>
-        <h2>Månadsinkomst</h2>
-        <div id="monthlyIncome"></div>
+        <label for="bruttolön">Bruttolön</label>
+        <input id="bruttolön" type="number" value="55000">
     </div>
     <div>
         <h2>Arbetsgivaravgift</h2>
@@ -38,8 +40,13 @@
         <div id="pensionTax"></div>
     </div>
     <div>
-        <h2>Total kostnad</h2>
-        <div id="totalCost"></div>
+        <h2>Total kostnad löneuttag + pension</h2>
+        <label for="totalMonthlyCost">Summa</label>
+        <div id="totalMonthlyCost"></div>
+    </div>
+    <div>
+        <h2>Kvar i potten</h2>
+        <div id="remaining"></div>
     </div>
 
     <script>
@@ -47,10 +54,15 @@
             updateArbetsgivaravgift();
             updateTotalCost();
         });
+
+        function addKr(input) {
+            return `${input} kr`
+        }
+
         function updateArbetsgivaravgift() {
             const bruttolön = document.getElementById("bruttolön").value;
             const arbetsgivaravgift = bruttolön * 0.3142;
-            document.getElementById("arbetsgivaravgift").innerText = arbetsgivaravgift.toFixed(2);
+            document.getElementById("arbetsgivaravgift").innerText = addKr(arbetsgivaravgift.toFixed(2));
         }
 
         document.getElementById("timmar").addEventListener("change", updateMonthlyIncome);
@@ -60,17 +72,19 @@
             const timarvode = document.getElementById("timarvode").value;
             const debitering = timdebitering * timarvode;
             const monthlyIncome = debitering * 0.7;
-            document.getElementById("monthlyIncome").innerText = monthlyIncome.toFixed(2);
+            document.getElementById("monthlyIncome").innerText = addKr(monthlyIncome.toFixed(2));
+            updateRemaining();
         }
 
         document.getElementById("pension").addEventListener("change", () => {
             updatePensionTax();
             updateTotalCost();
         });
+
         function updatePensionTax() {
             const pension = document.getElementById("pension").value;
             const pensionTax = pension * 0.2426;
-            document.getElementById("pensionTax").innerText = pensionTax.toFixed(2);
+            document.getElementById("pensionTax").innerText = addKr(pensionTax.toFixed(2));
         }
 
         function updateTotalCost() {
@@ -78,14 +92,23 @@
             const arbetsgivaravgift = bruttolön * 0.3142;
             const pension = document.getElementById("pension").value;
             const pensionTax = document.getElementById("pensionTax").textContent;
-            const totalCost = parseInt(bruttolön) + parseFloat(arbetsgivaravgift) + parseInt(pension) + parseFloat(pensionTax);
-            document.getElementById("totalCost").innerText = totalCost.toFixed(2);
+            const totalMonthlyCost = parseInt(bruttolön) + parseFloat(arbetsgivaravgift) + parseInt(pension) + parseFloat(pensionTax);
+            document.getElementById("totalMonthlyCost").innerText = addKr(totalMonthlyCost.toFixed(2));
+            updateRemaining();
+        }
+
+        function updateRemaining() {
+            const totalMonthlyCost = document.getElementById("totalMonthlyCost").textContent;
+            const monthlyIncome = document.getElementById("monthlyIncome").textContent;
+            const remaining = parseFloat(monthlyIncome) - parseFloat(totalMonthlyCost);
+            document.getElementById("remaining").innerText = addKr(remaining.toFixed(2));
         }
 
         updateArbetsgivaravgift();
         updateMonthlyIncome();
         updatePensionTax();
         updateTotalCost();
+        updateRemaining();
     </script>
 </body>
 
