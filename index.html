@@ -10,56 +10,56 @@
 </head>
 
 <body>
-    <div style="display: flex; justify-content: center;">
-
-        <div style="width: 50%">
-            <h1>Lönekalkylator</h1>
-            <div style="background-color: red;">
-                <h2>Intäkter/Debitering</h2>
-                <div>
-                    <label for="timmar">Debiterade timmar</label>
-                    <input id="timmar" type="number" value="160">
-                </div>
-                <div>
-                    <label for="timarvode">Timarvode</label>
-                    <input id="timarvode" type="number" value="1000">
-                </div>
-                <div>
-                    <h2>Månadsintäkt</h2>
-                    <div id="monthlyIncome"></div>
-                </div>
-            </div>
-            <div style="background-color:aquamarine;">
-                <h2>Löneuttag/Andra utgifter</h2>
-                <div>
-                    <label for="bruttolön">Bruttolön</label>
-                    <input id="bruttolön" type="number" value="55000">
-                </div>
-                <div>
-                    <label for="arbetsgivaravgift">Arbetsgivaravgift</label>
-                    <div id="arbetsgivaravgift"></div>
-                </div>
-                <div>
-                    <h2>Pension</h2>
-                    <input id="pension" type="number" value="3000">
-                </div>
-                <div>
-                    <h2>Skatt för pension</h2>
-                    <div id="pensionTax"></div>
-                </div>
-                <div>
-                    <h2>Total kostnad löneuttag + pension</h2>
-                    <label for="totalMonthlyCost">Summa</label>
-                    <div id="totalMonthlyCost"></div>
-                </div>
-            </div>
-            <div style="background-color: brown;">
-                <h2>Kvar i potten</h2>
-                <div id="remaining"></div>
-            </div>
+    <div class="flex-col">
+        <h1>Lönekalkylator</h1>
+        <div>
+            <h2>Intäkter / Debitering</h2>
+            <span class="flex-row">
+                <label for="timmar">Debiterade timmar</label>
+                <input id="timmar" type="number" value="160" class="pill">
+                <span class="ps-1">Timmar per månad</span>
+            </span>
+            <span class="flex-row">
+                <label for="timarvode">Timarvode</label>
+                <input id="timarvode" type="number" value="1000" class="pill">
+                <span class="ps-1">kr</span>
+            </span>
+            <span class="flex-row">
+                <label for="monthlyIncome">Månadsintäkt</label>
+                <span id="monthlyIncome" class="ps-2"></span>
+            </span>
+        </div>
+        <div>
+            <h2>Löneuttag / Andra utgifter</h2>
+            <span class="flex-row">
+                <label for="bruttolön">Bruttolön</label>
+                <input id="bruttolön" type="number" value="55000" class="pill">
+                <span class="ps-1">kr/månad</span>
+            </span>
+            <span class="flex-row">
+                <label for="arbetsgivaravgift">Arbetsgivaravgift</label>
+                <span id="arbetsgivaravgift" class="ps-2"></span>
+            </span>
+            <span class="flex-row">
+                <label for="pension">Pension</label>
+                <input id="pension" type="number" value="3000" class="pill">
+                <span class="ps-1">kr/månad</span>
+            </span>
+            <span class="flex-row">
+                <label for="pensionTax">Skatt för pension</label>
+                <span id="pensionTax" class="ps-2"></span>
+            </span>
+            <span class="flex-row">
+                <label for="totalMonthlyCost">Total kostnad</label>
+                <span id="totalMonthlyCost" class="ps-2"></span>
+                <span class="ps-1">(löneuttag + pension)</span>
+            </span>
+            <span class="flex-row">
+                <label for="remaining">Kvar i potten varje månad</label>
+                <span id="remaining" class="ps-2"></span>
+            </span>
         </div>
     </div>
-
 
     <script>
         document.getElementById("bruttolön").addEventListener("change", () => {

@@ -21,8 +21,52 @@ select {
 
 body {
     font-family: 'Open Sans';
+    font-size: 16px;
+    line-height: 2;
 }
 
 h1 {
     background-color: aqua;
+    border-radius: 20px;
+    padding: 0 0.5rem;
+    text-align: center;
+}
+
+.pill {
+    width: 100px;
+    height: 30px;
+    padding: 0 0.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: aqua;
+}
+
+label {
+    min-width: 100px;
+    width: 250px;
+}
+
+.p-1 {
+    padding: 0.25rem;
+}
+
+.ps-1 {
+    padding-inline-start: 0.25rem;
+}
+
+.ps-2 {
+    padding-inline-start: 0.5rem;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+}
+
+.flex-col {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    align-items: center;
 }
