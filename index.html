@@ -18,12 +18,12 @@
                 <h2>Intäkter / Debitering</h2>
                 <span class="input-item">
                     <label for="timmar">Debiterade timmar</label>
-                    <input id="timmar" type="number" value="160" class="pill">
+                    <input id="timmar" type="number" value="160" min="0" class="pill">
                     <span class="ps-1">Timmar per månad</span>
                 </span>
                 <span class="input-item">
                     <label for="timarvode">Timarvode</label>
-                    <input id="timarvode" type="number" value="1000" class="pill">
+                    <input id="timarvode" type="number" value="1000" min="0" class="pill">
                     <span class="ps-1">kr</span>
                 </span>
                 <span class="input-item">
@@ -33,7 +33,7 @@
                 <h2>Löneuttag / Andra utgifter</h2>
                 <span class="input-item">
                     <label for="bruttolön">Bruttolön</label>
-                    <input id="bruttolön" type="number" value="55000" class="pill">
+                    <input id="bruttolön" type="number" value="55000" min="0" class="pill">
                     <span class="ps-1">kr/månad</span>
                 </span>
                 <span class="input-item">
@@ -42,7 +42,7 @@
                 </span>
                 <span class="input-item">
                     <label for="pension">Pension</label>
-                    <input id="pension" type="number" value="3000" class="pill">
+                    <input id="pension" type="number" value="3000" min="0" class="pill">
                     <span class="ps-1">kr/månad</span>
                 </span>
                 <span class="input-item">
@@ -106,7 +106,7 @@
             const arbetsgivaravgift = bruttolön * 0.3142;
             const pension = document.getElementById("pension").value;
             const pensionTax = document.getElementById("pensionTax").textContent;
-            const totalMonthlyCost = parseInt(bruttolön) + parseFloat(arbetsgivaravgift) + parseInt(pension) + parseFloat(pensionTax);
+            const totalMonthlyCost = Number(bruttolön) + parseFloat(arbetsgivaravgift) + Number(pension) + parseFloat(pensionTax);
             document.getElementById("totalMonthlyCost").innerText = addKr(totalMonthlyCost.toFixed(2));
             updateRemaining();
         }
