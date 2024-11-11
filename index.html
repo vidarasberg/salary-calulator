@@ -12,52 +12,60 @@
 <body>
     <div class="flex items-center justify-center">
 
-        <div class="container flex flex-col p-4 gap-1">
+        <div class="flex flex-col p-4 gap-2">
             <h1>Lönekalkylator</h1>
             <div class="flex flex-col card">
                 <h2>Intäkter / Debitering</h2>
-                <span class="input-item">
+                <div class="flex flex-wrap">
                     <label for="timmar">Debiterade timmar</label>
-                    <input id="timmar" type="number" value="160" min="0" class="pill">
-                    <span class="ps-1">Timmar per månad</span>
-                </span>
-                <span class="input-item">
+                    <div>
+                        <input id="timmar" type="number" value="160" min="0" class="pill">
+                        <span class="ps-1">h/månad</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap">
                     <label for="timarvode">Timarvode</label>
-                    <input id="timarvode" type="number" value="1000" min="0" class="pill">
-                    <span class="ps-1">kr</span>
-                </span>
-                <span class="input-item">
+                    <div>
+                        <input id="timarvode" type="number" value="1000" min="0" class="pill">
+                        <span class="ps-1">kr</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap">
                     <label for="monthlyIncome">Månadsintäkt</label>
-                    <span id="monthlyIncome" class="ps-2"></span>
-                </span>
+                    <span id="monthlyIncome"></span>
+                </div>
                 <h2>Löneuttag / Andra utgifter</h2>
-                <span class="input-item">
+                <div class="flex flex-wrap">
                     <label for="bruttolön">Bruttolön</label>
-                    <input id="bruttolön" type="number" value="55000" min="0" class="pill">
-                    <span class="ps-1">kr/månad</span>
-                </span>
-                <span class="input-item">
+                    <div>
+                        <input id="bruttolön" type="number" value="55000" min="0" class="pill">
+                        <span>kr/månad</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap">
                     <label for="arbetsgivaravgift">Arbetsgivaravgift</label>
-                    <span id="arbetsgivaravgift" class="ps-2"></span>
-                </span>
-                <span class="input-item">
+                    <span id="arbetsgivaravgift"></span>
+                </div>
+                <div class="flex flex-wrap">
                     <label for="pension">Pension</label>
-                    <input id="pension" type="number" value="3000" min="0" class="pill">
-                    <span class="ps-1">kr/månad</span>
-                </span>
-                <span class="input-item">
+                    <div>
+
+                        <input id="pension" type="number" value="3000" min="0" class="pill">
+                        <span>kr/månad</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap">
                     <label for="pensionTax">Skatt för pension</label>
-                    <span id="pensionTax" class="ps-2"></span>
-                </span>
-                <span class="input-item">
-                    <label for="totalMonthlyCost">Total kostnad</label>
-                    <span id="totalMonthlyCost" class="ps-2"></span>
-                    <span class="ps-1">(löneuttag + pension)</span>
-                </span>
-                <span class="input-item">
+                    <span id="pensionTax"></span>
+                </div>
+                <div class="flex flex-wrap">
+                    <label for="totalMonthlyCost">Total kostnad (löneuttag + pension)</label>
+                    <span id="totalMonthlyCost"></span>
+                </div>
+                <div class="flex flex-wrap">
                     <label for="remaining">Kvar i potten varje månad</label>
-                    <span id="remaining" class="ps-2"></span>
-                </span>
+                    <span id="remaining"></span>
+                </div>
             </div>
         </div>
 

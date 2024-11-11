@@ -43,7 +43,7 @@ h1 {
 }
 
 .pill {
-    width: 100px;
+    width: 90px;
     height: 30px;
     padding: 0 0.5rem;
     border: none;
@@ -51,8 +51,8 @@ h1 {
 }
 
 label {
-    min-width: 100px;
-    width: 250px;
+    width: 300px;
+    font-weight: bold;
 }
 
 .p-1 {
@@ -71,14 +71,6 @@ label {
     padding: var(--spacing-unit-4);
 }
 
-.ps-1 {
-    padding-inline-start: var(--spacing-unit-1);
-}
-
-.ps-2 {
-    padding-inline-start: var(--spacing-unit-2);
-}
-
 .flex {
     display: flex;
 }
@@ -87,8 +79,8 @@ label {
     flex-direction: column;
 }
 
-.flex-row {
-    flex-direction: row;
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .justify-center {
@@ -99,6 +91,10 @@ label {
     gap: var(--spacing-unit-1);
 }
 
+.gap-2 {
+    gap: var(--spacing-unit-2);
+}
+
 .items-center {
     align-items: center;
 }
@@ -106,15 +102,11 @@ label {
 .card {
     background-color: var(--independtech-light);
     border-radius: 25px;
-    padding: var(--spacing-unit-4);
+    padding: var(--spacing-unit-3);
 }
 
-.container {
-    max-width: 640px;
-}
-
-.input-item {
-    display: flex;
-    align-items: center;
-    justify-content: start;
+@media screen and (max-width: 550px) {
+    label {
+        width: 100%;
+    }
 }
